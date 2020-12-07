@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FiBriefcase } from 'react-icons/fi';
 
 import { Container, Logo } from '../styles/layout/sidebar';
 
@@ -14,7 +15,10 @@ const Sidebar = () => {
       <ul>
         <li>
           <Link href="/">
-            <a>Minhas vagas</a>
+            <a>
+              <FiBriefcase />
+              <span>Vagas recomendadas</span>
+            </a>
           </Link>
         </li>
       </ul>

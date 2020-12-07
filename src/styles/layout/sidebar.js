@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 0.25rem;
+  padding: 0.75rem 0.5rem;
   background-color: #fafafa;
   width: 240px;
   align-items: center;
@@ -13,21 +13,29 @@ const Container = styled.div`
     padding: 0;
     margin: 1rem 0;
     width: 100%;
-  }
 
-  ul li {
-    width: 100%;
-    padding: 0.5rem;
+    li {
+      width: 100%;
+      padding: 0.5rem;
 
-    &:hover {
-      background-color: #eaeaea;
+      &:hover {
+        background-color: #eaeaea;
+      }
+
+      a {
+        border-radius: 0.25rem;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: #666666;
+
+        span {
+          margin-left: 0.5rem;
+        }
+      }
     }
-  }
-
-  ul li a {
-    border-radius: 0.25rem;
-    text-decoration: none;
-    color: inherit;
   }
 `;
 

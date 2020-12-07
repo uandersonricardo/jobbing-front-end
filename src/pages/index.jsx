@@ -2,6 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 
+import JobCard from '../components/JobCard';
+import { Container } from '../styles/pages/home';
+
 const Home = () => {
   const router = useRouter();
   const token = useSelector(state => state.auth.token);
@@ -11,7 +14,12 @@ const Home = () => {
     return <span>Carregando...</span>;
   }
 
-  return <h1>Logado</h1>;
+  return (
+    <Container>
+      <h1>Vagas recomendadas</h1>
+      <JobCard />
+    </Container>
+  );
 };
 
 export default Home;
