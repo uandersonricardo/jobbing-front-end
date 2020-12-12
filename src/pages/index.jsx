@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h1>Vagas recomendadas</h1>
+      <h2>Vagas recomendadas</h2>
       <JobCard />
     </Container>
   );

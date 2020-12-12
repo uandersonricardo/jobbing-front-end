@@ -5,9 +5,9 @@ const Container = styled.div`
   flex-direction: row;
   width: 100%;
   align-items: center;
-  justify-content: flex-end;
   padding: 1rem;
   margin-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
 `;
 
 const Photo = styled.img`
@@ -17,4 +17,15 @@ const Photo = styled.img`
   cursor: pointer;
 `;
 
-export { Container, Photo };
+const Logo = styled.img`
+  height: 40px;
+  width: auto;
+`;
+
+const MenuContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+`;
+
+export { Container, Photo, Logo, MenuContainer };
