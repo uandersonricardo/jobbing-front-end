@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ColorModeScript } from '@chakra-ui/react';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -35,11 +36,13 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,600,700"
           />
           <link rel="icon" href="/favicon.ico" />
+          <title>jobbing - Plataforma de vagas de emprego</title>
         </Head>
         <body>
+          <ColorModeScript initialColorMode="light" />
           <Main />
           <NextScript />
         </body>

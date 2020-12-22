@@ -1,10 +1,9 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import { useStore, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import wrapper from '../store';
-import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 import Layout from '../layout/Layout';
 
@@ -14,7 +13,7 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <PersistGate persistor={store.__persistor}>
-      <ThemeProvider theme={theme}>
+      <ChakraProvider theme={theme}>
         {token ? (
           <Layout>
             <Component {...pageProps} />
@@ -22,8 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
         ) : (
           <Component {...pageProps} />
         )}
-        <GlobalStyle />
-      </ThemeProvider>
+      </ChakraProvider>
     </PersistGate>
   );
 };

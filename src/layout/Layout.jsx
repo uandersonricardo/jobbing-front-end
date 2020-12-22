@@ -1,16 +1,16 @@
 import React from 'react';
+import { Flex } from '@chakra-ui/react';
 
 import Header from './Header';
-import { Container, Content, Wrapper } from '../styles/layout/layout';
 
 const Layout = ({ children }) => {
   return (
-    <Container>
-      <Wrapper>
-        <Header />
-        <Content>{children}</Content>
-      </Wrapper>
-    </Container>
+    <Flex direction="column" width="100vw" height="100vh">
+      <Header />
+      <Flex flex="1" direction="column">
+        {children}
+      </Flex>
+    </Flex>
   );
 };
 

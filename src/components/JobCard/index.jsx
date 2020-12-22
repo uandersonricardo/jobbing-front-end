@@ -4,94 +4,61 @@ import {
   FiStar,
   FiDollarSign,
   FiMapPin,
-  FiBox,
-  FiUsers,
-  FiCoffee,
-  FiClock,
-  FiCheckCircle
+  FiBox
 } from 'react-icons/fi';
-
-import {
-  Container,
-  Row,
-  Badge,
-  Col,
-  IconContainer,
-  TextContainer
-} from '../../styles/components/JobCard';
+import { Flex, Icon, Text } from '@chakra-ui/react';
 
 const JobCard = () => {
   return (
-    <Container>
-      <Row>
-        <h3>Nome da vaga</h3>
-        <FiMoreVertical size={18} color="#cacaca" />
-      </Row>
-      <Row>
-        <Badge>
-          <FiStar size={14} />
-          <span>3.9</span>
-        </Badge>
-        <Badge>
-          <FiBox size={14} />
-          <span>CELPE</span>
-        </Badge>
-        <Badge>
-          <FiMapPin size={14} />
-          <span>Jaboatão dos Guararapes</span>
-        </Badge>
-        <Badge>
-          <FiDollarSign size={14} />
-          <span>A combinar</span>
-        </Badge>
-      </Row>
-      <hr />
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-        pulvinar urna id lectus luctus porttitor. Sed sit amet magna risus.
-        Donec rhoncus orci lectus, tincidunt laoreet eros ultrices ac. Donec
-        euismod eget arcu vel pellentesque. Interdum et malesuada fames ac.
-      </div>
-      <hr />
-      <Row>
-        <Col>
-          <IconContainer>
-            <FiCoffee size={18} color="#ffffff" />
-          </IconContainer>
-          <TextContainer>
-            <div>1 vaga</div>
-            <div>disponível</div>
-          </TextContainer>
-        </Col>
-        <Col>
-          <IconContainer>
-            <FiUsers size={18} color="#ffffff" />
-          </IconContainer>
-          <TextContainer>
-            <div>500+ pessoas</div>
-            <div>se candidataram</div>
-          </TextContainer>
-        </Col>
-        <Col>
-          <IconContainer>
-            <FiClock size={18} color="#ffffff" />
-          </IconContainer>
-          <TextContainer>
-            <div>Publicado em</div>
-            <div>06/12/2020</div>
-          </TextContainer>
-        </Col>
-        <Col>
-          <IconContainer>
-            <FiCheckCircle size={18} color="#ffffff" />
-          </IconContainer>
-          <TextContainer>
-            <div>Expira em</div>
-            <div>20/12/2020</div>
-          </TextContainer>
-        </Col>
-      </Row>
-    </Container>
+    <Flex
+      direction="column"
+      w="100%"
+      padding="1.5rem"
+      borderBottom="1px"
+      borderColor="gray.200"
+    >
+      <Flex alignItems="center">
+        <Text fontWeight="bold" flex="1">
+          Nome da vaga
+        </Text>
+        <Icon as={FiMoreVertical} color="gray.500" />
+      </Flex>
+      <Flex marginY="0.5rem">
+        <Text color="gray.500" noOfLines={2}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+          pulvinar urna id lectus luctus porttitor. Sed sit amet magna risus.
+          Donec rhoncus orci lectus, tincidunt laoreet eros ultrices ac. Donec
+          euismod eget arcu vel pellentesque. Interdum et malesuada fames ac.
+        </Text>
+      </Flex>
+      <Flex alignItems="center">
+        <Icon as={FiStar} color="gray.500" marginRight="0.5rem" />
+        <Text color="gray.500" noOfLines={1}>
+          3.9
+        </Text>
+        <Text color="gray.300" marginX="0.5rem" fontWeight="bold">
+          ·
+        </Text>
+        <Icon as={FiBox} color="gray.500" marginRight="0.5rem" />
+        <Text color="gray.500" noOfLines={1}>
+          CELPE
+        </Text>
+        <Text color="gray.300" marginX="0.5rem" fontWeight="bold">
+          ·
+        </Text>
+        <Icon as={FiMapPin} color="gray.500" marginRight="0.5rem" />
+        <Text color="gray.500" noOfLines={1}>
+          Jaboatão dos Guararapes
+        </Text>
+        <Text color="gray.300" marginX="0.5rem" fontWeight="bold">
+          ·
+        </Text>
+        <Icon as={FiDollarSign} color="gray.500" marginRight="0.5rem" />
+        <Text color="gray.500" noOfLines={1}>
+          A combinar
+        </Text>
+      </Flex>
+    </Flex>
   );
 };
 
