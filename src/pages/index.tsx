@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
 import { Flex, Grid, Heading, Select } from '@chakra-ui/react';
 
+import { useAuth } from '../contexts/auth';
 import JobCard from '../components/JobCard';
 
 const Home = () => {
   const router = useRouter();
-  const token = useSelector(state => state.auth.token);
+  const { signed } = useAuth();
 
-  if (!token) {
-    router.push('/login');
+  useEffect(() => {
+    if (!signed) {
+      router.push('/login');
+    }
+  }, [signed]);
+
+
+  if (!signed) {
     return <span>Carregando...</span>;
   }
 

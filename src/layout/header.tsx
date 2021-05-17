@@ -9,12 +9,11 @@ import {
 import Link from 'next/link';
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { useDispatch } from 'react-redux';
 
-import { signIn } from '../actions/auth';
+import { useAuth } from '../contexts/auth';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const { logout } = useAuth();
 
   return (
     <Flex
@@ -55,7 +54,7 @@ const Header = () => {
           boxSize="32px"
           borderRadius="100%"
           cursor="pointer"
-          onClick={() => dispatch(signIn(null, null))}
+          onClick={logout}
         />
       </Flex>
     </Flex>

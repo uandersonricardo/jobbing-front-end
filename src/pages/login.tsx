@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   Flex,
   Heading,
@@ -22,14 +21,14 @@ import {
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 import api from '../config/api';
+import { useAuth } from '../contexts/auth';
 import { LOGIN } from '../graphql/mutations/auth';
 import { VALIDATE } from '../graphql/queries/auth';
-import { signIn } from '../actions/auth';
 
 const Login = () => {
   const router = useRouter();
-  const token = useSelector(state => state.auth.token);
-  const dispatch = useDispatch();
+  const { signed, login } = useAuth();
+  const dispatch = () => null;
   const toast = useToast();
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -51,7 +50,7 @@ const Login = () => {
         { authorization: `Bearer ${loginResponse.login}` }
       );
 
-      dispatch(signIn(loginResponse.login, validateResponse.validate));
+      login(validateResponse.validate, loginResponse.login);
 
       setLoading(false);
     } catch (err) {
@@ -67,8 +66,13 @@ const Login = () => {
     }
   };
 
-  if (token) {
-    router.push('/');
+  useEffect(() => {
+    if (signed) {
+      router.push('/');
+    }
+  }, [signed]);
+
+  if (signed) {
     return <span>Carregando...</span>;
   }
 
